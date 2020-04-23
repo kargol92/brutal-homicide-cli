@@ -7,3 +7,4 @@
 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-cli/BrutalHomicide/bin/Debug/BrutalHomicide.pdb
 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-cli/BrutalHomicide/obj/x86/Debug/BrutalHomicide.exe
 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-cli/BrutalHomicide/obj/x86/Debug/BrutalHomicide.pdb
+/opt/lampp/htdocs/portfolio/projects/brutal-homicide-cli/BrutalHomicide/obj/x86/Debug/BrutalHomicide.csprojAssemblyReference.cache

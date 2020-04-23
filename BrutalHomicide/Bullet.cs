@@ -2,25 +2,28 @@
 {
     class Bullet
     {
-        public Bullet(int x, int y, eDirection direction)
+        public Bullet(int x, int y, Direction direction)
         {
             this.x = x;
             this.y = y;
             this.direction = direction;
         }
-        public void Translocate()
+
+        public void translocate()
         {
-            if (direction == eDirection.up) y--;
-            if (direction == eDirection.down) y++;
-            if (direction == eDirection.left) x--;
-            if (direction == eDirection.right) x++;
+            if (direction == Direction.up) y--;
+            if (direction == Direction.down) y++;
+            if (direction == Direction.left) x--;
+            if (direction == Direction.right) x++;
         }
-        public bool CheckCollision()
+
+        public bool checkCollision()
         {
             //if (
             return false;
         }
-        eDirection direction;
+
+        Direction direction;
         int x;
         int y;
     }

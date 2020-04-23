@@ -2,11 +2,8 @@
 {
     class Wall : Tile
     {
-        public int Health
-        {
-            get { return health; }
-        }
-        public Wall(int x, int y, eTileType type)
+        public int health { get; private set; }
+        public Wall(int x, int y, TileType type)
         {
             this.x = x;
             this.y = y;
@@ -22,7 +19,7 @@
                 isDestroyed = true;
             }
         }
-        int health;
+
         bool isDestroyed;
     }
 }

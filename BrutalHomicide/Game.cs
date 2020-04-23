@@ -18,8 +18,7 @@ namespace BrutalHomicide
             {
                 display();
                 //p1.checkKey();
-                if (checkPressedKeys() == player1)
-                    player1.PressedKey = pressedKey;
+                player1.PressedKey = checkKey();
                 player1.TryMove();
                 if (checkCollisions(map, player1) == false)
                     player1.MakeMove();
@@ -35,70 +34,50 @@ namespace BrutalHomicide
             map.Draw(player1);
         }
 
-        void checkKey()
+        ConsoleKey checkKey()
         {
-
+            pressedKey = Console.ReadKey().Key;
+            Console.WriteLine("pressedKey=" + pressedKey);
+            if (pressedKey == ConsoleKey.Escape)
+                isRunning = false;
+            return pressedKey;
         }
 
         bool isRunning;
         ConsoleKey pressedKey;
-
         Map map;
         Player player1;
 
-        Player checkPressedKeys()
-        {
-            pressedKey = Console.ReadKey().Key;
-
-            Console.WriteLine("pressedKey=" + pressedKey);
-            if (pressedKey == ConsoleKey.Escape)
-            {
-                isRunning = false;
-                return null;
-            }
-            if (pressedKey == ConsoleKey.UpArrow)
-                return player1;
-            if (pressedKey == ConsoleKey.DownArrow)
-                return player1;
-            if (pressedKey == ConsoleKey.LeftArrow)
-                return player1;
-            if (pressedKey == ConsoleKey.RightArrow)
-                return player1;
-            if (pressedKey == ConsoleKey.Spacebar)
-                return player1;
-
-            return null;
-        }
         bool checkCollisions(Map map, Player p1)
         {
-            if (map.Tiles[p1.YNextStep, p1.XNextStep].Type == eTileType.baseWall) return true;
-            if (map.Tiles[p1.YNextStep, p1.XNextStep].Type == eTileType.wall) return true;
+            if (map.Tiles[p1.YNextStep, p1.XNextStep].type == TileType.baseWall) return true;
+            if (map.Tiles[p1.YNextStep, p1.XNextStep].type == TileType.wall) return true;
             return false;
         }
         bool checkItems()
         {
-            if (map.Tiles[player1.Y, player1.X].Type == eTileType.grenade)
+            if (map.Tiles[player1.Y, player1.X].type == TileType.grenade)
             {
-                player1.takeItem(eTileType.grenade);
-                map.Tiles[player1.Y, player1.X].Type = eTileType.blank;
+                player1.takeItem(TileType.grenade);
+                map.Tiles[player1.Y, player1.X].type = TileType.blank;
                 return true;
             }
-            if (map.Tiles[player1.Y, player1.X].Type == eTileType.ammo)
+            if (map.Tiles[player1.Y, player1.X].type == TileType.ammo)
             {
-                player1.takeItem(eTileType.ammo);
-                map.Tiles[player1.Y, player1.X].Type = eTileType.blank;
+                player1.takeItem(TileType.ammo);
+                map.Tiles[player1.Y, player1.X].type = TileType.blank;
                 return true;
             }
-            if (map.Tiles[player1.Y, player1.X].Type == eTileType.firstAid)
+            if (map.Tiles[player1.Y, player1.X].type == TileType.firstAid)
             {
-                player1.takeItem(eTileType.firstAid);
-                map.Tiles[player1.Y, player1.X].Type = eTileType.blank;
+                player1.takeItem(TileType.firstAid);
+                map.Tiles[player1.Y, player1.X].type = TileType.blank;
                 return true;
             }
-            if (map.Tiles[player1.Y, player1.X].Type == eTileType.money)
+            if (map.Tiles[player1.Y, player1.X].type == TileType.money)
             {
-                player1.takeItem(eTileType.money);
-                map.Tiles[player1.Y, player1.X].Type = eTileType.blank;
+                player1.takeItem(TileType.money);
+                map.Tiles[player1.Y, player1.X].type = TileType.blank;
                 return true;
             }
             return false;

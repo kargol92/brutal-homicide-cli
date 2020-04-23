@@ -9,6 +9,7 @@
             isThrowed = true;
             this.time = 5;
         }
+
         int x;
         int y;
         bool isThrowed;

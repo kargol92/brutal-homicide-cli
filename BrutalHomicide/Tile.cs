@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BrutalHomicide
+﻿namespace BrutalHomicide
 {
     class Tile
     {
-        public eTileType Type
-        {
-            get { return type; }
-            set { type = value; }
-        }
+        public TileType type;
         public Tile() { }
-        public Tile(int x, int y, eTileType type)
+        public Tile(int x, int y, TileType type)
         {
             this.x = x;
             this.y = y;
@@ -22,6 +13,5 @@ namespace BrutalHomicide
 
         protected int x;
         protected int y;
-        protected eTileType type;
     }
 }

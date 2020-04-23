@@ -8,10 +8,8 @@ namespace BrutalHomicide
         public int Height { get { return height; } }
         public Map()
         {
-            width = 20;
-            height = 20;
-            tiles = new Tile[20, 20];
-            table = new char[20, 20] // table is only for first draw, later it's not using
+            tiles = new Tile[height, width];
+            table = new char[height, width] // table is only for first draw, later it's not using
                                     // it's easier to do map like this
             {
                 { '#','#','#','#','#','#','#','#','#','#',  '#','#','#','#','#','#','#','#','#','#' },
@@ -23,17 +21,17 @@ namespace BrutalHomicide
                 { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
                 { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
                 { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
 
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
-                { '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
+                //{ '#',' ',' ',' ',' ',' ',' ',' ',' ',' ',  ' ',' ',' ',' ',' ',' ',' ',' ',' ','#' },
                 { '#','#','#','#','#','#','#','#','#','#',  '#','#','#','#','#','#','#','#','#','#' }
             };
 
@@ -43,39 +41,39 @@ namespace BrutalHomicide
                 {
                     if (table[y, x] == ' ')
                     {
-                        tiles[y, x] = new Tile(x, y, eTileType.blank);
+                        tiles[y, x] = new Tile(x, y, TileType.blank);
                     }
                     if (table[y, x] == '#')
                     {
-                        tiles[y, x] = new Tile(x, y, eTileType.baseWall);
+                        tiles[y, x] = new Tile(x, y, TileType.baseWall);
                     }
                     if (table[y, x] == '|')
                     {
-                        tiles[y, x] = new Door(x, y, eTileType.verticalDoor);
+                        tiles[y, x] = new Door(x, y, TileType.verticalDoor);
                     }
                     if (table[y, x] == '-')
                     {
-                        tiles[y, x] = new Door(x, y, eTileType.horizontalDoor);
+                        tiles[y, x] = new Door(x, y, TileType.horizontalDoor);
                     }
                     if (table[y, x] == '%')
                     {
-                        tiles[y, x] = new Wall(x, y, eTileType.wall);
+                        tiles[y, x] = new Wall(x, y, TileType.wall);
                     }
                     if (table[y, x] == '+')
                     {
-                        tiles[y, x] = new Item(x, y, eTileType.firstAid);
+                        tiles[y, x] = new Item(x, y, TileType.firstAid);
                     }
                     if (table[y, x] == 'o')
                     {
-                        tiles[y, x] = new Item(x, y, eTileType.grenade);
+                        tiles[y, x] = new Item(x, y, TileType.grenade);
                     }
                     if (table[y, x] == '$')
                     {
-                        tiles[y, x] = new Item(x, y, eTileType.money);
+                        tiles[y, x] = new Item(x, y, TileType.money);
                     }
                     if (table[y, x] == '*')
                     {
-                        tiles[y, x] = new Item(x, y, eTileType.ammo);
+                        tiles[y, x] = new Item(x, y, TileType.ammo);
                     }
                 }
             }
@@ -93,19 +91,19 @@ namespace BrutalHomicide
                     {
                         //p1.X = x;
                         //p1.Y = y;
-                        if (p1.Direction == eDirection.up)
+                        if (p1.Direction == Direction.up)
                         {
                             Console.Write('▲');
                         }
-                        if (p1.Direction == eDirection.down)
+                        if (p1.Direction == Direction.down)
                         {
                             Console.Write('▼');
                         }
-                        if (p1.Direction == eDirection.left)
+                        if (p1.Direction == Direction.left)
                         {
                             Console.Write('◀');
                         }
-                        if (p1.Direction == eDirection.right)
+                        if (p1.Direction == Direction.right)
                         {
                             Console.Write('▶');
                         }
@@ -113,39 +111,39 @@ namespace BrutalHomicide
                     }
                     
                     //}
-                    if (tiles[y, x].Type == eTileType.blank)
+                    if (tiles[y, x].type == TileType.blank)
                     {
                         Console.Write(' ');
                     }
-                    if (tiles[y, x].Type == eTileType.baseWall)
+                    if (tiles[y, x].type == TileType.baseWall)
                     {
                         Console.Write('#');
                     }
-                    if (tiles[y, x].Type == eTileType.verticalDoor)
+                    if (tiles[y, x].type == TileType.verticalDoor)
                     {
                         Console.Write('|');
                     }
-                    if (tiles[y, x].Type == eTileType.horizontalDoor)
+                    if (tiles[y, x].type == TileType.horizontalDoor)
                     {
                         Console.Write('-');
                     }
-                    if (tiles[y, x].Type == eTileType.wall)
+                    if (tiles[y, x].type == TileType.wall)
                     {
                         Console.Write('&');
                     }
-                    if (tiles[y, x].Type == eTileType.firstAid)
+                    if (tiles[y, x].type == TileType.firstAid)
                     {
                         Console.Write('+');
                     }
-                    if (tiles[y, x].Type == eTileType.grenade)
+                    if (tiles[y, x].type == TileType.grenade)
                     {
                         Console.Write('o');
                     }
-                    if (tiles[y, x].Type == eTileType.money)
+                    if (tiles[y, x].type == TileType.money)
                     {
                         Console.Write('$');
                     }
-                    if (tiles[y, x].Type == eTileType.ammo)
+                    if (tiles[y, x].type == TileType.ammo)
                     {
                         Console.Write('%');
                     }
@@ -153,8 +151,8 @@ namespace BrutalHomicide
                 Console.WriteLine();
             }
         }
-        int width;
-        int height;
+        const int width = 20;
+        const int height = 10;
 
         Tile[,] tiles;
         char[,] table;

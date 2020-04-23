@@ -9,7 +9,7 @@ namespace BrutalHomicide
         public int XNextStep { get { return xNextStep; } }
         public int YNextStep { get { return yNextStep; } }
         public ConsoleKey PressedKey { set { pressedKey = value; } }
-        public eDirection Direction { get { return direction; } }
+        public Direction Direction { get { return direction; } }
 
         public Player()
         {
@@ -17,7 +17,7 @@ namespace BrutalHomicide
             y = 1;
             xNextStep = 10;
             yNextStep = 10;
-            direction = eDirection.right;
+            direction = Direction.right;
             health = 50;
             ammo = 0;
             grenades = 0;
@@ -56,22 +56,22 @@ namespace BrutalHomicide
         {
             xNextStep = x;
             yNextStep = y;
-            if (pressedKey == ConsoleKey.UpArrow) { direction = eDirection.up; yNextStep = y - 1; }
-            if (pressedKey == ConsoleKey.DownArrow) { direction = eDirection.down; yNextStep = y + 1; }
-            if (pressedKey == ConsoleKey.LeftArrow) { direction = eDirection.left; xNextStep = x - 1; }
-            if (pressedKey == ConsoleKey.RightArrow) { direction = eDirection.right; xNextStep = x + 1; }
+            if (pressedKey == ConsoleKey.UpArrow) { direction = Direction.up; yNextStep = y - 1; }
+            if (pressedKey == ConsoleKey.DownArrow) { direction = Direction.down; yNextStep = y + 1; }
+            if (pressedKey == ConsoleKey.LeftArrow) { direction = Direction.left; xNextStep = x - 1; }
+            if (pressedKey == ConsoleKey.RightArrow) { direction = Direction.right; xNextStep = x + 1; }
             if (pressedKey == ConsoleKey.Spacebar) shoot();
         }
 
         public void MakeMove()
         {
-            if (direction == eDirection.up)
+            if (direction == Direction.up)
                 y--;
-            if (direction == eDirection.down)
+            if (direction == Direction.down)
                 y++;
-            if (direction == eDirection.left)
+            if (direction == Direction.left)
                 x--;
-            if (direction == eDirection.right)
+            if (direction == Direction.right)
                 x++;
         }
 
@@ -86,12 +86,12 @@ namespace BrutalHomicide
             Console.WriteLine("Granades: " + grenades);
         }
 
-        public void takeItem(eTileType item)
+        public void takeItem(TileType item)
         {
-            if (item == eTileType.grenade) grenades++;
-            if (item == eTileType.firstAid) health += 50;
-            if (item == eTileType.ammo) ammo += 25;
-            if (item == eTileType.money) money += 50;
+            if (item == TileType.grenade) grenades++;
+            if (item == TileType.firstAid) health += 50;
+            if (item == TileType.ammo) ammo += 25;
+            if (item == TileType.money) money += 50;
         }
 
 
@@ -103,7 +103,7 @@ namespace BrutalHomicide
         int y;
         int xNextStep;
         int yNextStep;
-        public eDirection direction;
+        public Direction direction;
         int grenades;
         int health;
         int ammo;

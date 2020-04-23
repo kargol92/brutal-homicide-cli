@@ -1,14 +1,14 @@
 ﻿namespace BrutalHomicide
 {
-    enum eDirection
+    enum Direction
     {
         up, down, left, right
     }
-    enum eTileType // player is temporary only for ascii version
+    enum TileType // player is temporary only for ascii version
     {
         player, blank, wall, baseWall, verticalDoor, horizontalDoor, item, firstAid, ammo, grenade, money
     }
-    enum eItemType
+    enum ItemType
     {
         grenade,
         firstAid,

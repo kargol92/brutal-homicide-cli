@@ -42,7 +42,6 @@
     <Compile Include="Item.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="MenuMain.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="Wall.cs" />
