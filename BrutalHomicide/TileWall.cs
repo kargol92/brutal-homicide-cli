@@ -1,16 +1,21 @@
-﻿namespace BrutalHomicide
+﻿using System;
+
+namespace BrutalHomicide
 {
-    class Wall : Tile
+    class TileWall : Tile
     {
         public int health { get; private set; }
-        public Wall(int x, int y, TileType type)
+
+        public TileWall(int x, int y)
         {
-            this.x = x;
-            this.y = y;
-            this.type = type;
+            mark = '&';
+            color = ConsoleColor.DarkGray;
             health = 10;
             isDestroyed = false;
+            this.x = x;
+            this.y = y;
         }
+
         public void checkHealth()
         {
             if (health <= 0)

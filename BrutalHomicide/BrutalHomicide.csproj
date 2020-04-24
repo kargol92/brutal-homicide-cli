@@ -35,16 +35,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bullet.cs" />
-    <Compile Include="Door.cs" />
+    <Compile Include="TileDoor.cs" />
     <Compile Include="Enumerables.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Grenade.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Tile.cs" />
-    <Compile Include="Wall.cs" />
+    <Compile Include="TileWall.cs" />
+    <Compile Include="TileDoorHorizontal.cs" />
+    <Compile Include="TileDoorVertical.cs" />
+    <Compile Include="TileBlank.cs" />
+    <Compile Include="TileBase.cs" />
+    <Compile Include="TileGrenade.cs" />
+    <Compile Include="TileFirstAid.cs" />
+    <Compile Include="TileAmmo.cs" />
+    <Compile Include="TileMoney.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

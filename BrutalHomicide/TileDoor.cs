@@ -2,19 +2,16 @@
 
 namespace BrutalHomicide
 {
-    class Door : Tile
+    class TileDoor : Tile
     {
-        public Door(int x, int y, TileType type)
+        public TileDoor()
         {
-            this.x = x;
-            this.y = y;
-            this.type = type;
-            isOpen = false;
+            color = ConsoleColor.White;
         }
 
         public void checkOwner()
         {
-            if (Math.Abs(owner.X - x) <= 2 && Math.Abs(owner.Y - y) <= 2)
+            if (Math.Abs(owner.x - x) <= 2 && Math.Abs(owner.y - y) <= 2)
             {
                 isOpen = true;
             }
@@ -26,7 +23,7 @@ namespace BrutalHomicide
 
         }
 
-        bool isOpen;
-        Player owner;
+        protected bool isOpen;
+        protected Player owner;
     }
 }

@@ -1,16 +1,25 @@
-﻿namespace BrutalHomicide
+﻿using System;
+
+namespace BrutalHomicide
 {
     class Tile
     {
-        public TileType type;
+        public ConsoleColor color;
+
         public Tile() { }
-        public Tile(int x, int y, TileType type)
+        public Tile(int x, int y)
         {
             this.x = x;
             this.y = y;
-            this.type = type;
         }
 
+        public void display()
+        {
+            Console.ForegroundColor = color;
+            Console.Write(mark);
+        }
+
+        protected char mark;
         protected int x;
         protected int y;
     }
