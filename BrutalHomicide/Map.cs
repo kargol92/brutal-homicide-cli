@@ -66,6 +66,7 @@ namespace BrutalHomicide
                     {
                         //p1.X = x;
                         //p1.Y = y;
+                        //Console.SetCursorPosition(p1.x, p1.y);
                         if (p1.direction == Direction.up)       Console.Write('▲');
                         if (p1.direction == Direction.down)     Console.Write('▼');
                         if (p1.direction == Direction.left)     Console.Write('◀');
