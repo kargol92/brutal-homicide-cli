@@ -3,6 +3,11 @@ using System.Media;
 
 namespace BrutalHomicide
 {
+    enum Direction
+    {
+        up, down, left, right
+    }
+
     class Player
     {
         public int x { get; private set; }
@@ -80,29 +85,29 @@ namespace BrutalHomicide
             Console.WriteLine("Granades: " + grenades);
         }
 
-        public void takeItem(TileType item)
+        public void takeItem(Tile item)
         {
-            if (item == TileType.grenade)
+            if (item is TileGrenade)
             {
                 grenades++;
                 SystemSounds.Exclamation.Play();
                 //System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"audio/confirmation_001.ogg");
                 //player.Play();
             }
-            if (item == TileType.firstAid)
+            if (item is TileFirstAid)
             {
                 health += 50;
                 SystemSounds.Question.Play();
             }
-            if (item == TileType.ammo)
+            if (item is TileAmmo)
             {
                 ammo += 25;
                 SystemSounds.Hand.Play();
             }
-            if (item == TileType.money)
+            if (item is TileMoney)
             {
                 money += 50;
-                SystemSounds.Hand.Play();
+                SystemSounds.Asterisk.Play();
             }
         }
 

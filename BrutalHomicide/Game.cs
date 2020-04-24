@@ -70,31 +70,15 @@ namespace BrutalHomicide
 
         bool checkItems()
         {
-            if (map.tiles[player1.y, player1.x] is TileGrenade)
+            Tile tile = map.tiles[player1.y, player1.x];
+            if (tile is TileGrenade || tile is TileAmmo || tile is TileFirstAid || tile is TileMoney)
             {
-                player1.takeItem(TileType.grenade);
+                player1.takeItem(tile);
                 map.tiles[player1.y, player1.x] = new TileBlank(player1.y, player1.x);
                 return true;
             }
-            if (map.tiles[player1.y, player1.x] is TileAmmo)
-            {
-                player1.takeItem(TileType.ammo);
-                map.tiles[player1.y, player1.x] = new TileBlank(player1.y, player1.x);
-                return true;
-            }
-            if (map.tiles[player1.y, player1.x] is TileFirstAid)
-            {
-                player1.takeItem(TileType.firstAid);
-                map.tiles[player1.y, player1.x] = new TileBlank(player1.y, player1.x);
-                return true;
-            }
-            if (map.tiles[player1.y, player1.x] is TileMoney)
-            {
-                player1.takeItem(TileType.money);
-                map.tiles[player1.y, player1.x] = new TileBlank(player1.y, player1.x);
-                return true;
-            }
-            return false;
+            else
+                return false;
         }
 
         void checkDoor()
